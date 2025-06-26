@@ -1,0 +1,42 @@
+CREATE DATABASE cadastro
+DEFAULT CHARACTER SET utf8mb4
+COLLATE utf8mb4_general_ci;
+
+
+USE cadastro;
+
+CREATE TABLE pessoas(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nome VARCHAR(30) NOT NULL,
+nascimento DATE,
+sexo ENUM("M",'f'),
+peso DECIMAL(5,2),
+altura DECIMAL(3,2),
+nacionalidade VARCHAR(30)
+)ENGINE=Innodb DEFAULT CHARSET = utf8mb4;
+
+SHOW DATABASES;
+SHOW TABLES;
+DESCRIBE pessoas;
+
+
+INSERT INTO pessoas VALUES
+
+(default, "Ana","1975-12-22","F","52.3","1.45","EUA", "Carpinteira"),
+(default,'Maria','1999-05-30','F','75.8','1.70','Portugal',"Diarista"),
+(default,'Wanderly','1968-02-24','M','73.2','1.72','Brasil',"Ladrao");
+
+select * from pessoas
+where nome = "Ana";
+
+alter table pessoas
+add column profissao varchar(30),
+
+
+alter table pessoas
+add column idade tinyint not null
+after nome;
+
+delete idade from pessoas;
+
+describe pessoas;
